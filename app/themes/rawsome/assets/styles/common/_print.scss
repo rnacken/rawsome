@@ -1,0 +1,10 @@
+
+
+@media print {
+    
+    // override bootstrap way of adding the url of every link to the print-page
+    a[href]:after {
+        content: none !important;
+    }
+    
+}

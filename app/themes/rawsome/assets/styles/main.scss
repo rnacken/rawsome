@@ -1,0 +1,31 @@
+@import "common/_variables";
+
+// Automatically injected Bower dependencies via wiredep (never manually edit this block)
+// bower:scss
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../../bower_components/font-awesome/scss/font-awesome.scss";
+@import "../../bower_components/angular-bootstrap-datetimepicker/src/scss/datetimepicker.scss";
+// endbower
+
+// bower:css
+@import "../../bower_components/swiper/dist/css/swiper.css";
+@import "../../bower_components/jquery-ui/themes/ui-lightness/jquery-ui.css";
+@import "../../bower_components/jquery-ui/themes/ui-lightness/theme.css";
+// endbower
+
+
+@import "common/_global"; 
+@import "common/_print";
+@import "common/_animations";
+
+@import "components/_buttons";
+@import "components/_elements";
+@import "components/_shortcodes";
+@import "components/_forms";
+@import "components/_type";
+@import "components/_wp-classes";
+
+@import "layouts/_header";
+@import "layouts/_body";
+@import "layouts/_footer";
+@import "layouts/_nav";

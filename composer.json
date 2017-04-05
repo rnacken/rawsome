@@ -1,0 +1,56 @@
+{
+    "name": "nacken.ru/wp",
+    "type": "project",
+    "license": "MIT",
+    "description": "Rawsome - WordPress stack, based on Roots/Bedrock",
+    "homepage": "http://nacken.ru",
+    "authors": [
+        {
+            "name": "Ru Nacken",
+            "email": "info@nacken.ru",
+            "homepage": "http://nacken.ru"
+        }
+    ],
+    "keywords": [
+        "wordpress", "stack", "composer", "wp"
+    ],
+    "config": {
+        "preferred-install": "dist"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "composer/installers": "~1.0.12",
+        "vlucas/phpdotenv": "^2.0.1",
+        "johnpbloch/wordpress": "4.7.2",
+        "wpackagist-plugin/qtranslate-x": "*",
+        "wpackagist-plugin/acf-to-rest-api": "*",
+        "wpackagist-plugin/wp-api-menus": "*"
+    },
+    "extra": {
+        "installer-paths": {
+            "app/mu-plugins/{$name}/": ["type:wordpress-muplugin",
+                "wpackagist-plugin/qtranslate-x",
+                "wpackagist-plugin/acf-to-rest-api",
+                "wpackagist-plugin/wp-api-menus"
+            ],
+            "app/plugins/{$name}/": ["type:wordpress-plugin"],
+            "app/themes/{$name}/": ["type:wordpress-theme"]
+        },
+        "wordpress-install-dir": "wp",
+        "mu-plugins-load": [
+            "/admin-columns-pro/admin-columns-pro.php",
+            "/advanced-custom-fields-pro/acf.php",
+            "/cac-addon-acf/cac-addon-acf.php",
+            "/qtranslate-x/qtranslate.php",
+            "/tinymce-advanced/tinymce-advanced.php",
+            "/acf-to-rest-api/class-acf-to-rest-api.php",
+            "/wp-api-menus/wp-api-menus.php"
+        ]        
+    }
+}

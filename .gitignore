@@ -1,0 +1,42 @@
+# Application
+app/plugins/*
+!app/plugins/.gitkeep
+app/mu-plugins/*/
+!app/plugins/load.php
+app/upgrade
+app/uploads/*
+!app/uploads/.gitkeep
+
+# WordPress
+wp
+
+# WP-CLI
+db-sync
+sql-dump-*.sql
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Vendor (e.g. Composer)
+vendor/*
+!vendor/.gitkeep
+composer.lock
+composer.phar
+
+# Node Package Manager
+node_modules
+
+bower_components
+
+# Vagrant
+bin
+.vagrant
+
+# Mac
+.DS_Store
+
+# PhpStorm
+.idea
+nbproject/
