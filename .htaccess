@@ -1,3 +1,12 @@
+DirectoryIndex index.html index.php
+Options +FollowSymlinks 
+
+# Force HTTPS (uncomment if you want to redirect to https)
+#RewriteEngine On
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP:X-Forwarded-Proto} =http
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
 RewriteEngine On
@@ -9,11 +18,41 @@ RewriteRule . /index.php [L]
 </IfModule>
 # END WordPress
 
+# redirect 404 errors to 404-page
+ErrorDocument 404 /404
+
 # limit types of files to be uploaded
 <Files ^(*.jpeg|*.jpg|*.png|*.gif|*.pdf)>
 order deny,allow
 deny from all
 </Files>
 
-# redirect 404 errors to 404-page
-ErrorDocument 404 /404
+<Files wp-config.php>
+order allow,deny
+deny from all
+</Files>
+
+<Files .env>
+order allow,deny
+deny from all
+</Files>
+
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
+# Block the include-only files
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^wp/wp-admin/includes/ - [F,L]
+RewriteRule !^wp/wp-includes/ - [S=3]
+RewriteRule ^wp/wp-includes/[^/]+\.php$ - [F,L]
+RewriteRule ^wp/wp-includes/js/tinymce/langs/.+\.php - [F,L]
+RewriteRule ^wp/wp-includes/theme-compat/ - [F,L]
+</IfModule>
+
+Options All -Indexes
+
+# todo: add stuff for CORS to make API work over different domains
