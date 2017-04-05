@@ -35,35 +35,24 @@ For more installation notes, refer to the [Install gulp and Bower](#install-gulp
 * [Theme wrapper](https://roots.io/sage/docs/theme-wrapper/)
 
 
-## Theme installation
+## Installation
 
-Clone the git repo - `git clone https://github.com/roots/sage.git` and then rename the directory to the name of your theme or website.
+* Clone the git repo
+* Install wp & plugins with composer (composer install)
+* Create a .env file in the root (see .env.example)
+* Change themes/rawsome directory name to your project name. Also change theme name in style.css
+* Bower install
+* Npm install
+* Run gulp for creating /dist files
 
-## Theme setup
+## Further development
 
-Edit `lib/setup.php` to enable or disable theme features, setup navigation menus, post thumbnail sizes, post formats, and sidebars.
+### Add a plugin
 
-## Theme development
+* In root, edit composer.json file. Add a wpackagist/plugin-name entry
+* If it is a mu-plugin, add it to extra twice (once for install-location and once for automatic loading)
 
-Sage uses [gulp](http://gulpjs.com/) as its build system and [Bower](http://bower.io/) to manage front-end packages.
-
-### Install gulp and Bower
-
-Building the theme requires [node.js](http://nodejs.org/download/). We recommend you update to the latest version of npm: `npm install -g npm@latest`.
-
-From the command line:
-
-1. Install [gulp](http://gulpjs.com) and [Bower](http://bower.io/) globally with `npm install -g gulp bower`
-2. Navigate to the theme directory, then run `npm install`
-3. Run `bower install`
-
-You now have all the necessary dependencies to run the build process.
-
-### Available gulp commands
-
-* `gulp` — Compile and optimize the files in your assets directory
-* `gulp watch` — Compile assets when file changes are made
-* `gulp --production` — Compile assets for production (no source maps).
+## Other stuff
 
 ### Using BrowserSync
 
